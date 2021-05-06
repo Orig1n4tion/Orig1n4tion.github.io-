@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>c语言---引用（变量的别名）</title>
+      <link href="2021/05/06/c%E8%AF%AD%E8%A8%80---%E5%BC%95%E7%94%A8%EF%BC%88%E5%8F%98%E9%87%8F%E7%9A%84%E5%88%AB%E5%90%8D%EF%BC%89/"/>
+      <url>2021/05/06/c%E8%AF%AD%E8%A8%80---%E5%BC%95%E7%94%A8%EF%BC%88%E5%8F%98%E9%87%8F%E7%9A%84%E5%88%AB%E5%90%8D%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<h1 id="c语言—引用（变量的别名）"><a href="#c语言—引用（变量的别名）" class="headerlink" title="c语言—引用（变量的别名）"></a>c语言—引用（变量的别名）</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int a&#x3D;10； </span><br><span class="line">int &amp;b&#x3D;a；引用：必须在定义的时候初始化，无空引用，且引用不分等级。 </span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="1、从内存上分配看"><a href="#1、从内存上分配看" class="headerlink" title="1、从内存上分配看"></a>1、从内存上分配看</h2><p>指针：指向具体的内存空间，是间接访问变量，指针自身消耗内存空间 　　其指向①可变的（除非用了const）②不一定存在，如空指针NULL 　　 引用：【不用分配内存区域—引用（别名而已）的地址其实就是被引用对象的地址】必须一开始就指向一个存在的对象（创建时必须初始化，不能为空）</p><h2 id="2、从编译上看"><a href="#2、从编译上看" class="headerlink" title="2、从编译上看"></a>2、从编译上看</h2><p><strong>程序在编译时分别将指针和引用添加到符号表上，符号表上记录的是变量名及变量所对应地址等【符号表生成后不再改变】</strong> 故指针的名字和指针的地址不能改变，但是指针中地址空间内存放的地址能够改变（指针变量的值可以改） 而引用指向的不能改。</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int a；</span><br><span class="line">int *p&#x3D;&amp;a；&#x2F;&#x2F;指针有自己的指针名字和地址，存储了指向对象的地址（可以更改→指向别的对象的地址）</span><br><span class="line">int &amp;b&#x3D;a；&#x2F;&#x2F;引用即别名（一旦声明则不可变更） 引用b和被引用的a用同一个地址：符号表中2个变量名指向同一个地址</span><br><span class="line">（int &amp;b&#x3D;a和int* const pp&#x3D;&amp;a；一样不能改变指向的对象，但能改变指向对象的值）</span><br><span class="line">&#x2F;&#x2F;不同在于b的地址就是a的地址       即&amp;b &#x3D;&#x3D; &amp;a</span><br><span class="line">&#x2F;&#x2F;而pp有自己的地址 pp存放了a的地址 即pp &#x3D;&#x3D; &amp;a</span><br><span class="line">符号表存放内容：变量名变量地址     【符号表生成后不再改变】</span><br><span class="line">int aaa的地址</span><br><span class="line">指针p：指针名指针地址    而指针指向的a地址（存放的数据）可以改变【不安全】</span><br><span class="line">引用b：引用名b引用对象a的地址→→→故引用对象不能改变【安全】</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="3、在函数作传参使用"><a href="#3、在函数作传参使用" class="headerlink" title="3、在函数作传参使用"></a>3、在函数作传参使用</h2><p>传递一个引用→→必然存在且有效【安全但没有指针快，一个地址总比复杂数据传递快】 传递一个指针→→指针不一定有效【需要判断所传递指针是否非空】</p><p>转载于<a href="https://blog.csdn.net/qq_42024067/article/details/107520230">https://blog.csdn.net/qq_42024067/article/details/107520230</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title></title>
       <link href="2021/01/24/C/"/>
       <url>2021/01/24/C/</url>
