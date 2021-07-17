@@ -210,13 +210,44 @@ MathJax = {
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">10110011001100110011001100110100</span><br></pre></td></tr></table></figure>
 <p>那么这个数，再计算机内存的二进制即就是上面的补码，我们可以转换为十进制，答案就是 <code>-858993460</code></p>
 <p>还有就是变量str出现了烫，其实跟乱码没有关系，乱码是解码跟编码不同才会乱码，因为 中文 烫的 16进制刚好就是 <code>0xCCCC</code>;可以检查下程序哪里数组越界或者字符串是不是‘\0’结尾的。</p>
-<h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><p><strong>为什么需要指针？</strong></p>
+<h3 id="零零碎碎"><a href="#零零碎碎" class="headerlink" title="零零碎碎"></a>零零碎碎</h3><p><strong>冯·诺依曼架构</strong></p>
+<p>数学家冯·诺依曼提出<strong>了计算机制</strong>造的三个基<em>本原则</em>，即采用二进制逻辑、程序存储执行以及计算机由五个部分组成（运算器、控制器、存储器、输入设备、输出设备），这套理论被称为冯·诺依曼体系结构。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">想象一下我们在做数学考试：</span><br><span class="line"></span><br><span class="line">输入设备就是考卷，题目都在卷子上。同样的计算机要计算哪些数据，怎么计算，都来自于输入设备。</span><br><span class="line">内存就是草稿纸，我们会把要计算的题目抄写到草稿纸上，用草稿纸记录计算的中间过程。同样的，计算机要把来自输入设备的数据，以及要怎么计算这些数据的指令，从输入设备载入到内存中，并且把每一步计算的结果写入到内存。</span><br><span class="line">运算单元是计算器，我们用计算器来计算每一步的加减乘除。同样的，计算机有专用的运算单元，来计算数据。（假设这次数学考试允许带计算器）</span><br><span class="line">控制单元就是我们自己了。我们根据试卷上的算式，来决定第一步是算乘法还是加法，乘法是哪两个数相乘，加法又是哪两个数相加。</span><br><span class="line">输出设备就是答题卡。我们计算完一道题后，需要把草稿纸上的结果抄写在答题卡上。</span><br><span class="line">其中，我们自己+计算器的组合，在计算机里面是同一个设备——CPU（Central Processing Unit，中央处理器）。</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>CPU、内存</strong></p>
+<p>CPU，全称中央处理器。</p>
+<p>CPU可以直接访问存储在内存中的数据。不可以直接访问存储在外存中的数据，外存数据必须先读进内存再供CPU访问。</p>
+<p>内存，也称为主存储器和内存储器。是外存与CPU进行沟通的桥梁，<em>计算机所处理的数据都要经过内存</em>，也就是说计算中的所有程序都是在内存中进行的。起作用是用于暂时存放CPU中的运算数据，以及与硬盘等外部存储器交换的数据。</p>
+<p>计算机运行一个程序时，优先调用并执行一部分必要的程序，在需要其他数据的时候便从硬盘 或者硬盘缓存，或者内存缓冲区读取数据，以供程序运行。</p>
+<p><strong>缓冲区（Buffer）与缓存（Cache）</strong></p>
+<p>缓存：将缓慢的访问结果保存下来。<br>缓冲：将突发快速的访问平稳下来。</p>
+<p>缓冲区(Buffer)就是在<strong>内存</strong>中预留指定大小的存储空间用来对I/O的数据做临时存储，这部分预留的内存空间叫缓冲区。</p>
+<p>缓冲区存在的意义：高速设备与低速设备的不匹配，势必会让高速设备花时间等待低速设备，我们可以在这两者之间设立一个缓冲区。</p>
+<p>缓存</p>
+<p>缓存在CPU、硬盘、浏览器中都有应用。</p>
+<p>CPU的Cache，中文名称是高速缓冲存储器，读写速度很快，几乎与CPU一样。由于CPU的运算速度太快，内存的数据存取速度无法跟上CPU的速度，所以在cpu与内存间设置了cache为cpu的数据快取区。</p>
+<p>磁盘也有cache,硬盘的cache作用就类似于CPU的cache，它解决了总线接口的高速需求和读写硬盘的矛盾以及对某些扇区的反复读取。</p>
+<p>浏览器缓存（Browser Caching）是为了节约网络的资源加速浏览，浏览器在用户磁盘上对最近请求过的文档进行存储，当访问者再次请求这个页面时，浏览器就可以从本地磁盘显示文档，这样就可以加速页面的阅览，并且可以减少服务器的压力。这个过程与下载非常类似，不过下载是用户的主动过程，并且下载的数据一般是长时间保存，游览器的缓存的数据只是短时间保存，可以人为的清空</p>
+<p><strong>数据类型</strong></p>
+<p><strong>在C语言中的声明、定义、初始化、赋值</strong></p>
+<p> int a;是声明变量。</p>
+<p>赋值就是 变量 = 某个值。</p>
+<p>声明变量的时候同时赋值，叫初始化，也就是说初始化=声明+赋值。</p>
+<p><strong>进制</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">十六进制 hexadecimal 0x或0X开头</span><br><span class="line"></span><br><span class="line">八进制 octal 0开头</span><br><span class="line"></span><br><span class="line">二进制 binary 0b或0B开头</span><br><span class="line"></span><br><span class="line">十进制 decimal 无标志</span><br><span class="line"></span><br><span class="line">至于为什么十六进制前缀是0x，就是这么规定的</span><br><span class="line">[0]是便于解释器的识别，[x]是十六进制的标志，可能是hex吧</span><br></pre></td></tr></table></figure>
+<p><strong>C语言中的%</strong></p>
+<p>有两种释义。一是求余，经常会用到判断一个数是不是能被另一个整除；二是引导符，用于引导输入输出项表列的格式，例如%#X，引导输出以0X为前缀的字符串。</p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><p><strong>为什么需要指针？</strong></p>
 <p>指针解决了一些编程中基本的问题。</p>
 <p>第一，指针的使用使得不同区域的代码可以轻易的共享内存数据。当然你也可以通过数据的复制达到相同的效果，但是这样往往效率不太好，因为诸如结构体等大型数据，占用的字节数多，复制很消耗性能。但使用指针就可以很好的避免这个问题，因为任何类型的指针占用的字节数都是一样的（根据平台不同，有4字节或者8字节或者其他可能）。</p>
 <p>第二，指针使得一些复杂的链接性的数据结构的构建成为可能，比如链表，链式二叉树等等。</p>
 <p>第三，有些操作必须使用指针。如操作申请的堆内存。</p>
 <p><strong>什么是指针？</strong></p>
 <p><em>指针是程序数据在内存中的地址，而指针变量是用来保存这些地[址的变量。</em></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">100</span>;</span><br><span class="line">    <span class="keyword">char</span> str[<span class="number">20</span>] = <span class="string">&quot;test&quot;</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%#X, %#X\n&quot;</span>, &amp;a, str);</span><br><span class="line">	system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//c语言中%x的意思是16进制输出</span></span><br><span class="line"><span class="comment">//c语言中符合%#的意思是带格式输出。比如，%#x的意思是在输出前面加上0x，%#b的意思是在输出前面加上0b。</span></span><br></pre></td></tr></table></figure>
+<p>运行结果，返回变量a与str的内存地址<br>0X12FFEA0, 0X12FFE84</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://raw.githubusercontent.com/Orig1n4tion/Photo/master/DS/20210108231700.png"></p>
 <p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/29882140/answer/45914872">指针变量为什么加前缀p?</a><br><a target="_blank" rel="noopener" href="http://c.biancheng.net/c/80/">http://c.biancheng.net/c/80/</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lulipro/p/7460206.html">https://www.cnblogs.com/lulipro/p/7460206.html</a></p>
 <h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">10</span>； 	</span><br><span class="line"><span class="keyword">int</span> &amp;amp;b=a；		引用：必须在定义的时候初始化，无空引用，且引用不分等级。 </span><br></pre></td></tr></table></figure>
 <h3 id="1、从内存上分配看"><a href="#1、从内存上分配看" class="headerlink" title="1、从内存上分配看"></a>1、从内存上分配看</h3><p>指针：指向具体的内存空间，是间接访问变量，指针自身消耗内存空间<br>其指向1.可变的（除非用了const）2.不一定存在，如空指针NULL<br>引用：【不用分配内存区域—引用（别名而已）的地址其实就是被引用对象的地址】必须一开始就指向一个存在的对象（创建时必须初始化，不能为空）</p>
@@ -232,7 +263,7 @@ MathJax = {
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/2021/01/24/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" target="_self">
+              <a href="/2021/01/24/hello-world/" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>Prev</span>
               </a>
@@ -260,7 +291,7 @@ MathJax = {
   <div class="post-catalog" id="catalog">
     <div class="title">Contents</div>
     <div class="catalog-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#C"><span class="toc-text">C</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80"><span class="toc-text">基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E9%92%88"><span class="toc-text">指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E7%94%A8"><span class="toc-text">引用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E4%BB%8E%E5%86%85%E5%AD%98%E4%B8%8A%E5%88%86%E9%85%8D%E7%9C%8B"><span class="toc-text">1、从内存上分配看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E4%BB%8E%E7%BC%96%E8%AF%91%E4%B8%8A%E7%9C%8B"><span class="toc-text">2、从编译上看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E5%9C%A8%E5%87%BD%E6%95%B0%E4%BD%9C%E4%BC%A0%E5%8F%82%E4%BD%BF%E7%94%A8"><span class="toc-text">3、在函数作传参使用</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#C"><span class="toc-text">C</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80"><span class="toc-text">基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%B6%E9%9B%B6%E7%A2%8E%E7%A2%8E"><span class="toc-text">零零碎碎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E9%92%88"><span class="toc-text">指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E7%94%A8"><span class="toc-text">引用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E4%BB%8E%E5%86%85%E5%AD%98%E4%B8%8A%E5%88%86%E9%85%8D%E7%9C%8B"><span class="toc-text">1、从内存上分配看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E4%BB%8E%E7%BC%96%E8%AF%91%E4%B8%8A%E7%9C%8B"><span class="toc-text">2、从编译上看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E5%9C%A8%E5%87%BD%E6%95%B0%E4%BD%9C%E4%BC%A0%E5%8F%82%E4%BD%BF%E7%94%A8"><span class="toc-text">3、在函数作传参使用</span></a></li></ol></li></ol></li></ol>
     </div>
   </div>
 
