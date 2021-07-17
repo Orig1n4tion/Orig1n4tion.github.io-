@@ -127,9 +127,7 @@ MathJax = {
         
       </div>
       <div class="markdown-body">
-        <hr>
-<hr>
-<h2 id="递归算法"><a href="#递归算法" class="headerlink" title="递归算法"></a>递归算法</h2><h3 id="递归模型"><a href="#递归模型" class="headerlink" title="递归模型"></a>递归模型</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">fun(<span class="number">1</span>)=<span class="number">1</span>                    (<span class="number">1</span>)   </span><br><span class="line">fun(n)=n*fun(n<span class="number">-1</span>)     n&gt;<span class="number">1</span>   (<span class="number">2</span>) </span><br><span class="line">   </span><br><span class="line">其中，第一个式子给出了递归的终止条件，第二个式子给出了fun(n)的值与fun(n<span class="number">-1</span>)的值之间的关系。</span><br><span class="line"> 我们把第一个式子称为递归出口，把第二个式子称为递归体</span><br></pre></td></tr></table></figure>
+        <h2 id="递归算法"><a href="#递归算法" class="headerlink" title="递归算法"></a>递归算法</h2><h3 id="递归模型"><a href="#递归模型" class="headerlink" title="递归模型"></a>递归模型</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">fun(<span class="number">1</span>)=<span class="number">1</span>                    (<span class="number">1</span>)   </span><br><span class="line">fun(n)=n*fun(n<span class="number">-1</span>)     n&gt;<span class="number">1</span>   (<span class="number">2</span>) </span><br><span class="line">   </span><br><span class="line">其中，第一个式子给出了递归的终止条件，第二个式子给出了fun(n)的值与fun(n<span class="number">-1</span>)的值之间的关系。</span><br><span class="line"> 我们把第一个式子称为递归出口，把第二个式子称为递归体</span><br></pre></td></tr></table></figure>
 <h3 id="递归算法的执行过程"><a href="#递归算法的执行过程" class="headerlink" title="递归算法的执行过程"></a>递归算法的执行过程</h3><p>一个正确的递归程序虽然每次调用的是相同的子程序，但它的参量、输入数据等均有变化，并且在正常的情况下，随着调用的不断深入，必定会出现调用到某一层的函数时，不再执行递归调用而终止函数的执行，遇到递归出口便是这种情况。</p>
 <p>递归调用是函数嵌套调用的一种特殊情况，即它是调用自身代码。因此，也可以把每一次递归调用理解成调用自身代码的一个复制件。由于每次调用时，它的参量和局部变量均不相同，因而也就保证了各个复制件执行时的独立性。</p>
 <p>　但这些调用在内部实现时，并不是每次调用真的去复制一个复制件存放到内存中，而是采用代码共享的方式，也就是它们都是调用同一个函数的代码，而系统为每一次调用开辟一组存储单元，用来存放本次调用的返回地址以及被中断的函数的参量值。<br>　　<strong>这些单元以栈的形式存放，每调用一次进栈一次，当返回时执行出栈操作，把当前栈顶保留的值送回相应的参量中进行恢复，并按栈顶中的返回地址，从断点继续执行。</strong></p>
