@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title></title>
+      <link href="2021/07/19/%E9%AB%98%E6%95%B0/"/>
+      <url>2021/07/19/%E9%AB%98%E6%95%B0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="高数"><a href="#高数" class="headerlink" title="高数"></a>高数</h1><h2 id="一元微分学的几何应用"><a href="#一元微分学的几何应用" class="headerlink" title="一元微分学的几何应用"></a>一元微分学的几何应用</h2><h3 id="极值与最值概念"><a href="#极值与最值概念" class="headerlink" title="极值与最值概念"></a>极值与最值概念</h3><h4 id="极值"><a href="#极值" class="headerlink" title="极值"></a>极值</h4><p>极大值：x0的某个邻域内任意一点，均有fx&lt;=fx0  </p><p>极小值反之</p><h4 id="最值"><a href="#最值" class="headerlink" title="最值"></a>最值</h4><p>最大值：在定义域内</p><h3 id="单调性与极值的判别"><a href="#单调性与极值的判别" class="headerlink" title="单调性与极值的判别"></a>单调性与极值的判别</h3><p>单调性判别：在区间I上，fx导&gt;0，则称单调增加，反之单调减少</p><p>一阶可导点是极值点的必要条件：fx在x=x0处可导，且在点x0处去的极值，则必有fx0导=0</p><p>判别极值的三充分条件：从左邻域到右邻域变号；fx导=0，fx二阶导不等于0；fxn阶导=0，fx（n+1）阶导不等于0.</p><h3 id="凹凸性与拐点的概念"><a href="#凹凸性与拐点的概念" class="headerlink" title="凹凸性与拐点的概念"></a>凹凸性与拐点的概念</h3><h3 id="凹凸性与拐点的判别"><a href="#凹凸性与拐点的判别" class="headerlink" title="凹凸性与拐点的判别"></a>凹凸性与拐点的判别</h3><h3 id="渐近线"><a href="#渐近线" class="headerlink" title="渐近线"></a>渐近线</h3><h3 id="最值与取值范围"><a href="#最值与取值范围" class="headerlink" title="最值与取值范围"></a>最值与取值范围</h3><h3 id="作函数图形"><a href="#作函数图形" class="headerlink" title="作函数图形"></a>作函数图形</h3><h2 id="无穷级数"><a href="#无穷级数" class="headerlink" title="无穷级数"></a>无穷级数</h2><p><strong>无穷级数简称级数,可以理解为无穷数列之和,u1+u2+…un,简记为\sum{un}</strong></p><p>注:级数中的无穷指的是正无穷</p><h3 id="常数项级数"><a href="#常数项级数" class="headerlink" title="常数项级数"></a>常数项级数</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>常数项级数就是级数通项un为常数的级数.借助部分和数列{Sn},再借助极限工具,也就是研究n取无穷时Sn等于un之和</p><h4 id="敛散性"><a href="#敛散性" class="headerlink" title="敛散性"></a>敛散性</h4><p>若n取无穷时Sn=S,则称该级数收敛,并称S为该收敛级数的和<br>若n取无穷时Sn不存在或者为正负无穷,,则称该级数是发散的</p><h4 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h4><p>1.收敛级数的线性性质</p><p>2.改变(不论加减)收敛级数任意有限项,不会改变敛散性</p><p>3.若级数收敛,则n取无穷时un=0</p><h3 id="敛散性判别方法"><a href="#敛散性判别方法" class="headerlink" title="敛散性判别方法"></a>敛散性判别方法</h3><h4 id="正项级数敛散性判别方法"><a href="#正项级数敛散性判别方法" class="headerlink" title="正项级数敛散性判别方法"></a>正项级数敛散性判别方法</h4><p>1.收敛原则</p><p>正项级数收敛的充要条件是部分和数列Sn有界</p><p>2.比较判别法</p><p>3.比较判别法的极限形式</p><p>4.比值判别法</p><p>5.根值判别法</p><h4 id="交错级数"><a href="#交错级数" class="headerlink" title="交错级数"></a>交错级数</h4><p>若{un}单调不增且n取无穷时un=0(性质3),则该级数收敛</p><h4 id="任意项级数"><a href="#任意项级数" class="headerlink" title="任意项级数"></a>任意项级数</h4><p>定理:若任意项级数绝对收敛则该级数必收敛</p><h3 id="幂级数"><a href="#幂级数" class="headerlink" title="幂级数"></a>幂级数</h3><h4 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h4><p>一般项是un(x)是n次幂函数,则称该级数为幂级数</p><h4 id="收敛点与发散点"><a href="#收敛点与发散点" class="headerlink" title="收敛点与发散点"></a>收敛点与发散点</h4><p>指的是一个点x0,取x0时级数(无穷数列之和)发散或者收敛</p><h4 id="阿贝尔定理"><a href="#阿贝尔定理" class="headerlink" title="阿贝尔定理"></a>阿贝尔定理</h4><h4 id="收敛域求法"><a href="#收敛域求法" class="headerlink" title="收敛域求法"></a>收敛域求法</h4><p>n趋于无穷时|a(n+1)/a(n)| </p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>数据结构</title>
       <link href="2021/07/17/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
       <url>2021/07/17/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</url>
